@@ -83,6 +83,7 @@ class CNLine extends HTMLElement {
     this.addPlaceholderButton.onclick = () => this.addPlaceholder();
     
     this.appendChild(this.valueField);
+    this.appendChild(document.createElement('br'));
     this.appendChild(this.upButton);
     this.appendChild(this.downButton);
     this.appendChild(this.splitButton);
