@@ -58,8 +58,10 @@ class CNLine extends HTMLElement {
   connectedCallback() {
     this.style.display = "list-item";
 
-    this.valueField = document.createElement('pre');
-    this.valueField.textContent = this.value_ || '（缺失）';
+    this.valueField = document.createElement('input');
+    this.valueField.placeholder = '（缺失）'
+    this.valueField.value = this.value_ || '';
+    this.valueField.onchange = () => this.value_ = this.valueField.value;
     
     this.upButton = document.createElement('button');
     this.upButton.innerHTML = 'up';
@@ -95,7 +97,7 @@ class CNLine extends HTMLElement {
   set value(val) {
     this.value_ = val;
     if (this.valueField)
-      this.valueField.textContent = val;
+      this.valueField.value = val;
   }
   
   mergeUp() {
